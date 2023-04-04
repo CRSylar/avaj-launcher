@@ -1,5 +1,6 @@
 #!/bin/bash
 cd src/
+rm -f simulation.txt
 javac launcher/Simulator/Simulator.java
 
 if [[ "$#" -eq 0 ]]

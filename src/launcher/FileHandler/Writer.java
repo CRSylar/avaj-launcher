@@ -42,6 +42,7 @@ public class Writer {
     public void write(String message) {
         try {
             fileWriter.write(message);
+            fileWriter.write("\n");
             fileWriter.flush();
         } catch (IOException error){
             System.out.println("Cant Write the File! " + error.getMessage());

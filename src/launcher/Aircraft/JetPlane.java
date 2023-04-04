@@ -48,7 +48,7 @@ public class JetPlane extends Aircraft implements Flyable {
                 );
                 message = "A Raging snow storm! decreasing Height";
         }
-        Writer.getInstance().write(message);
+        Writer.getInstance().write(id+message);
         if (this.coordinates.getHeight() <= 0){
             Writer.getInstance().write(id + "Landing...");
             weatherTower.unregister(this);

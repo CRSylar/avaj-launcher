@@ -11,6 +11,7 @@ import launcher.Aircraft.Coordinates;
 import launcher.Aircraft.Flyable;
 import launcher.Errors.*;
 import launcher.FileHandler.MyReader;
+import launcher.FileHandler.Writer;
 import launcher.Weather.WeatherTower;
 
 public class Simulator
@@ -28,6 +29,7 @@ public class Simulator
             if (readerRow == null) throw new UsageException("Empty File! ");
             int simulation = Integer.parseInt(readerRow[0]);
 
+            System.out.println("Debug, Simulation: "+simulation);
             if (simulation <= 0)
                 throw new RuntimeException("The number of simulations must be greater than zero");
 
@@ -47,9 +49,16 @@ public class Simulator
                 flyableList.add(flyable);
                 flyable.registerTower(weaterTower);
             }
+            reader.closeFile();
+            for (int i = 1; i <= simulation; i++) {
+                Writer.getInstance().write("\nStarting Simulation n"+i+ ":");
+                weaterTower.changeWeather();
+            }
 
-        }  catch (Exception Exception) {
-            System.out.println(Exception.getMessage());
+
+        }  catch (Exception exception) {
+            System.out.println("Nel catch");
+            System.out.println(exception);
         }
     };
 };

@@ -47,7 +47,7 @@ public class Helicopter extends Aircraft implements Flyable{
                 );
                 message = "I'm Freezing with this snow, i'll lose quota";
         }
-        Writer.getInstance().write(message);
+        Writer.getInstance().write(id+message);
         if (this.coordinates.getHeight() <= 0){
             Writer.getInstance().write(id + "Landing...");
             weatherTower.unregister(this);

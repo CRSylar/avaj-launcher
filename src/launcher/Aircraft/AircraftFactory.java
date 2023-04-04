@@ -3,7 +3,7 @@ package launcher.Aircraft;
 import java.util.UUID;
 
 public class AircraftFactory {
-    public Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinate){
+    public static Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinate){
 
         return switch (p_type) {
             case "Helicopter" -> new Helicopter(1, p_name, p_coordinate);

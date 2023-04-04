@@ -13,6 +13,9 @@
 # intelliJ
 .idea/
 
+# builded folder
+out/
+
 # Package Files #
 *.jar
 *.war

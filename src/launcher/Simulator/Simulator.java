@@ -1,7 +1,11 @@
 package launcher.Simulator;
 
 import java.io.*;
+import java.util.Arrays;
+
 import launcher.Errors.*;
+import launcher.Errors.RuntimeException;
+import launcher.FileHandler.MyReader;
 
 public class Simulator
 {
@@ -10,13 +14,13 @@ public class Simulator
         if (args.length != 1)
             throw new UsageException("Usage Error, ");
         try {
-            BufferedReader a = new BufferedReader(new FileReader(args[0]));
-
+            MyReader reader = new MyReader(args[0]);
+            String[] firstRow = reader.getRow();
+            if (firstRow == null) throw new UsageException("Empty File! ");
+            System.out.println(firstRow[0]);
 
         }  catch (IOException fileException) {
-            System.out.println("Cannot Read File specified");
-        } catch (Exception exception) {
-            System.out.println(exception.getLocalizedMessage());
+            System.out.println(fileException.getMessage());
         }
     };
 };

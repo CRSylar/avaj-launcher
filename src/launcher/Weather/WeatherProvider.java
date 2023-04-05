@@ -15,10 +15,10 @@ public class WeatherProvider {
         private static final WeatherProvider instance = new WeatherProvider();
     }
     public String getCurrentWeather(Coordinates p_coordinates) {
-        int rand = new Random().nextInt(100);
-        return weather[
-                (p_coordinates.getLongitude() * p_coordinates.getLatitude() *p_coordinates.getHeight() + rand) % 4
-                ];
+       int rand = new Random().nextInt(weather.length);
+       //System.out.println("Random: "+rand);
+
+       return weather[rand];
     }
 
     public static WeatherProvider getInstance() {

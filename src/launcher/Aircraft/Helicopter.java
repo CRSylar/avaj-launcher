@@ -31,6 +31,7 @@ public class Helicopter extends Aircraft implements Flyable{
                         coordinates.getHeight() +2
                 );
                 message = "I'm melting with this strong sun!";
+                break;
             case "FOG":
                 coordinates = new Coordinates(
                         coordinates.getLongitude() +1,
@@ -38,7 +39,7 @@ public class Helicopter extends Aircraft implements Flyable{
                         coordinates.getHeight()
                 );
                 message = "Cant see nothing! fog everywhere";
-
+                break;
             case "SNOW":
                 coordinates = new Coordinates(
                         coordinates.getLongitude(),
@@ -46,6 +47,7 @@ public class Helicopter extends Aircraft implements Flyable{
                         coordinates.getHeight() - 12
                 );
                 message = "I'm Freezing with this snow, i'll lose quota";
+                break;
         }
         Writer.getInstance().write(id+message);
         if (this.coordinates.getHeight() <= 0){

@@ -31,6 +31,7 @@ public class Baloon extends Aircraft implements Flyable{
                         coordinates.getHeight() + 4
                 );
                 message = "It's Sunny, let take some pictures!";
+                break;
             case "FOG":
                 coordinates = new Coordinates(
                         coordinates.getLongitude(),
@@ -38,7 +39,7 @@ public class Baloon extends Aircraft implements Flyable{
                         coordinates.getHeight() - 3
                 );
                 message = "I feel like a stone in a pond...";
-
+                break;
             case "SNOW":
                 coordinates = new Coordinates(
                         coordinates.getLongitude(),
@@ -46,6 +47,7 @@ public class Baloon extends Aircraft implements Flyable{
                         coordinates.getHeight() - 15
                 );
                 message = "it's Snowing! i'm not prepared to this!";
+                break;
         }
         Writer.getInstance().write(id+message);
         if (this.coordinates.getHeight() <= 0){

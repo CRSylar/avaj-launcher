@@ -14,6 +14,8 @@ public class JetPlane extends Aircraft implements Flyable {
     public void updateConditions() {
         String condition = weatherTower.getWeather(this.coordinates);
         String id = "JetPlane#"+this.name+" ("+this.id+"): ";
+        System.out.println("Condition for "+id+" "+condition);
+
         String message = "";
         switch (condition) {
             case "RAIN":
@@ -32,6 +34,7 @@ public class JetPlane extends Aircraft implements Flyable {
                         coordinates.getHeight() +2
                 );
                 message = "What a warm sun, gaining quota";
+                break;
             case "FOG":
                 coordinates = new Coordinates(
                         coordinates.getLongitude(),
@@ -39,7 +42,7 @@ public class JetPlane extends Aircraft implements Flyable {
                         coordinates.getHeight()
                 );
                 message = "Solid Fog Here! reducing Latitude...";
-
+                break;
             case "SNOW":
                 coordinates = new Coordinates(
                   coordinates.getLongitude(),
@@ -47,6 +50,7 @@ public class JetPlane extends Aircraft implements Flyable {
                   coordinates.getHeight() - 7
                 );
                 message = "A Raging snow storm! decreasing Height";
+                break;
         }
         Writer.getInstance().write(id+message);
         if (this.coordinates.getHeight() <= 0){

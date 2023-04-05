@@ -12,7 +12,7 @@ public class AircraftFactory {
             case "Helicopter" -> new Helicopter(rand.nextInt(bound), p_name, p_coordinate);
             case "Baloon" -> new Baloon(rand.nextInt(bound), p_name, p_coordinate);
             case "JetPlane" -> new JetPlane(rand.nextInt(bound), p_name, p_coordinate);
-            default -> throw new RuntimeException();
+            default -> throw new RuntimeException("Aircraft must be Helicopter|Baloon|JetPlane, found "+p_type);
         };
     }
 }
